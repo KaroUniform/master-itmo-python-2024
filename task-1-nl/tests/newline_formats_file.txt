@@ -1,0 +1,9 @@
+# newline_formats (Unix)
+Line 1
+Line 2
+
+# newline_formats (Windows)
+Line 1\r\nLine 2\r\n
+
+# newline_formats (Mac)
+Line 1\rLine 2\r
