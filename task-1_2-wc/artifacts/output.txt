@@ -1,0 +1,3 @@
+  29	1369	9273	task-1.2-wc/tests/input.txt
+  29	1369	9273	task-1.2-wc/tests/input_copy.txt
+  58	2738	18546	total
