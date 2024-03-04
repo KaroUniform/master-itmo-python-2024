@@ -1,0 +1,1 @@
+python -m unittest task-1.2-wc/tests/tests.py
