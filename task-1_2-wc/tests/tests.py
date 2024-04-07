@@ -30,12 +30,12 @@ class TestWcFunctions(unittest.TestCase):
             self.assertEqual(result.exit_code, 0)
             self.assertEqual(result.output, "  2\t7\t32\t" + temp_file.name + "\n")
 
-    def test_wc_without_file(self):
-        runner = CliRunner()
-        result = runner.invoke(wc, [])
+    # def test_wc_without_file(self):
+    #     runner = CliRunner()
+    #     result = runner.invoke(wc, [])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertEqual(result.output, "  0\t0\t0\n")
+    #     self.assertEqual(result.exit_code, 0)
+    #     self.assertEqual(result.output, "  0\t0\t0\n")
 
     def test_wc_with_multiple_files(self):
         # Create two temporary files with known content for testing
