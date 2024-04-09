@@ -26,7 +26,7 @@ async def download_pages(links, data):
     - num_images: Number of images to download.
     - output_dir: Directory to save the downloaded images.
     """
-    async with httpx.AsyncClient() as session:
+    async with httpx.AsyncClient(http2=True) as session:
         tasks = [
             download_page(session, link, data)
             for link in links
@@ -72,7 +72,7 @@ async def main():
     url = "https://www.cian.ru/cat.php?deal_type=rent&engine_version=2&offer_type=flat&p=2&region=1&room1=1&room2=1&room3=1&room4=1&room5=1&room6=1&room7=1&room9=1&type=4"
     async def fetch_page(url):
         global content
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(http2=True) as client:
             response = await client.get(url, headers=headers)
             if response.status_code == 200:
                 content = response.text
