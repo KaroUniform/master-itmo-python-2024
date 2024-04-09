@@ -53,13 +53,16 @@ class Matrix:
 
         Returns:
             Matrix: A new Matrix object representing the result of the addition.
-        
+
         Raises:
             ValueError: If matrices have different dimensions.
         """
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("Matrices must have the same dimensions for addition")
-        result = [[self.matrix[i][j] + other.matrix[i][j] for j in range(self.cols)] for i in range(self.rows)]
+        result = [
+            [self.matrix[i][j] + other.matrix[i][j] for j in range(self.cols)]
+            for i in range(self.rows)
+        ]
         return Matrix(result)
 
     def __mul__(self, other):
@@ -71,13 +74,18 @@ class Matrix:
 
         Returns:
             Matrix: A new Matrix object representing the result of the multiplication.
-        
+
         Raises:
             ValueError: If matrices have different dimensions.
         """
         if self.rows != other.rows or self.cols != other.cols:
-            raise ValueError("Matrices must have the same dimensions for component-wise multiplication")
-        result = [[self.matrix[i][j] * other.matrix[i][j] for j in range(self.cols)] for i in range(self.rows)]
+            raise ValueError(
+                "Matrices must have the same dimensions for component-wise multiplication"
+            )
+        result = [
+            [self.matrix[i][j] * other.matrix[i][j] for j in range(self.cols)]
+            for i in range(self.rows)
+        ]
         return Matrix(result)
 
     def __matmul__(self, other):
@@ -89,13 +97,19 @@ class Matrix:
 
         Returns:
             Matrix: A new Matrix object representing the result of the multiplication.
-        
+
         Raises:
             ValueError: If the number of columns in the first matrix is not equal to the number of rows in the second matrix.
         """
         if self.cols != other.rows:
-            raise ValueError("The number of columns in the first matrix must be equal to the number of rows in the second for matrix multiplication")
-        result = [[sum(a * b for a, b in zip(self_row, other_col)) for other_col in zip(*other.matrix)] for self_row in self.matrix]
+            raise ValueError(
+                "The number of columns in the first matrix must be equal to the number of rows in the second for matrix multiplication"
+            )
+        result = [
+            [
+                sum(a * b for a, b in zip(self_row, other_col))
+                for other_col in zip(*other.matrix)
+            ]
+            for self_row in self.matrix
+        ]
         return Matrix(result)
-
-    
