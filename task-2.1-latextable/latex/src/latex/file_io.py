@@ -8,7 +8,7 @@ def save_to_tex_file(latex_code: str, filename:str="output.tex"):
     - filename: The name of the file to save the code.
     """
     # Preparing the complete LaTeX document code
-    full_document = "\\documentclass{article}\n\\begin{document}\n" + latex_code + "\n\\end{document}"
+    full_document = "\\documentclass{article}\n\\usepackage{graphicx}\n\\begin{document}\n" + latex_code + "\n\\end{document}"
     # Writing to the file
     with open(filename, "w") as file:
         file.write(full_document)
